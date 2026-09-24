@@ -555,18 +555,5 @@ elif calc_type == "🧾 Shift Receipt & Print Slip":
         selected_id = st.selectbox("Select Record ID for Receipt:", df_receipts["ID"].tolist())
         record = df_receipts[df_receipts["ID"] == selected_id].iloc[0]
 
-        receipt_box = f"""
-==================================================
-           {current_station_name.upper()}
-              OFFICIAL SHIFT RECEIPT             
-==================================================
-Receipt ID      : #{record['ID']}
-Date            : {record['Date']}
-Shift           : {record['Shift']}
-Operator Name   : {record['Operator']}
-Nozzle          : {record['Nozzle']}
---------------------------------------------------
-Start Reading   : {record['Start Read']:,.2f}
-End Reading     : {record['End Read']:,.2f}
-Qty Sold        : {record['Qty Sold']:,.2f} Units
-Rate / Unit     : Rs {record['Rate']:,.2f}
+        receipt_box = f"Official Shift Receipt - ID: {selected_id}"
+                          
